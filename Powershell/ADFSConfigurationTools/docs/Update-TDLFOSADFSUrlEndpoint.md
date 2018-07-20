@@ -21,7 +21,7 @@ Update-TDLFOSADFSUrlEndpoint [-PrimaryADFSServer] <String> [-CurrentFederatedDom
 ```
 
 ## DESCRIPTION
-Use this command to update the primary ADFS URL endpoint. The command also u SSL certificates as required.
+Use this command to update the primary ADFS URL endpoint. The command also updates SSL certificates as required.
 after URL update, The command updates all Microsoft Federated domains with the New URL endpoint. If any webapplication Proxy
 servers are present they need to be updated with the Update-TLDFOSWebapplicationProxyURL command
 ## EXAMPLES
