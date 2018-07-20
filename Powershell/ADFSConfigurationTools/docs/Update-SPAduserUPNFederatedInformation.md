@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Update-TDLFOSAduserUPNFederatedInformation
+# Update-SPAduserUPNFederatedInformation
 
 ## SYNOPSIS
 Updates Federated UPN information for Active Directory users
@@ -14,14 +14,14 @@ Updates Federated UPN information for Active Directory users
 
 ### ByUsername
 ```
-Update-TDLFOSAduserUPNFederatedInformation -UserName <String[]> -ADLocalDomain <String>
+Update-SPAduserUPNFederatedInformation -UserName <String[]> -ADLocalDomain <String>
  -AzureADSyncServerFQDN <String> -FederatedDomain <String> -LogFilePath <String> [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
 ### BySearchBase
 ```
-Update-TDLFOSAduserUPNFederatedInformation -SearchBase <String> -ADLocalDomain <String>
+Update-SPAduserUPNFederatedInformation -SearchBase <String> -ADLocalDomain <String>
  -AzureADSyncServerFQDN <String> -FederatedDomain <String> -LogFilePath <String> [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
@@ -33,18 +33,17 @@ This command updates UPN information for users in between two federated domains
 
 ### Example 1
 ```powershell
-PS C:\> Update-TDLFOSAduserUPNFederatedInformation -username "Tara.Fisher", "Susan.Yorke", "Almaz.Duggan" -ADLocalDomain 'abio2018.org.au' -FederatedDomain 'afca.org.au' -AzureADSyncServerFQDN "FOSAUMELDC01.ABIO.org.au" -LogFilePath C:\Scripts -Verbose 
+PS C:\> Update-SPAduserUPNFederatedInformation -username "Tara.Fisher", "Susan.Yorke", "Almaz.Duggan" -ADLocalDomain 'adfs.local' -FederatedDomain 'adfstools.com.au' -AzureADSyncServerFQDN "AZADSYNC01.adfs.local" -LogFilePath C:\Scripts -Verbose 
 ```
-
-In the above example the users Tara.Fisher, Susan.Yorke & Almaz.Duggan federated UPN is updated
-to afca.org.au and AzureAD is run to update Microsoft Online Services.
+users Tara.Fisher, Susan.Yorke & Almaz.Duggan federated UPN is updated
+to adfstools.com.au and AzureAD is run to update Microsoft Online Services.
 
 ### Example 2
 ```powershell
-PS C:\> Update-TDLFOSAduserUPNFederatedInformation -SearchBase "OU=Users,OU=SyncedUsers,DC=ABIO,DC=Org,DC=AU" -ADLocalDomain 'ABIO22.org.au' -FederatedDomain 'afca.org.au' -AzureADSyncServerFQDN "FOSAUMELDC01.ABIO.org.au" -LogFilePath C:\Scripts -Verbose -WhatIf
+PS C:\> Update-SPAduserUPNFederatedInformation -SearchBase "OU=Users,OU=SyncedUsers,DC=users,DC=com,DC=AU" -ADLocalDomain 'adfs.ocal' -FederatedDomain 'adfstools.com.au' -AzureADSyncServerFQDN "AZADSYNC01.adfs.local" -LogFilePath C:\Scripts -Verbose -WhatIf
 ```
 
-In the above example all users in the Users OU UPN will be updated to the federated UPN of  afca.org.au and AzureAD is run to update Microsoft Online Services.
+In the above example all users in the Users OU UPN will be updated to the federated UPN of  adfstools.com.au and AzureAD is run to update Microsoft Online Services.
 
 ## PARAMETERS
 
@@ -93,7 +92,7 @@ Accept wildcard characters: False
 ```
 
 ### -LogFilePath
-Log File path to AD Replication log
+Log File path 
 ```yaml
 Type: String
 Parameter Sets: (All)
@@ -107,8 +106,8 @@ Accept wildcard characters: False
 ```
 
 ### -SearchBase
-if UPN updates needs to be done to all users in an OU. use the SearchBase
-in the Base DN format.
+if UPN updates needs to be done to all users in an OU. use  SearchBase
+in Base DN format.
 
 ```yaml
 Type: String
@@ -123,7 +122,7 @@ Accept wildcard characters: False
 ```
 
 ### -UserName
-IF UPN update needs to be done to specific users use the username parameter
+IF UPN update needs to be done to specific users use username
 
 ```yaml
 Type: String[]

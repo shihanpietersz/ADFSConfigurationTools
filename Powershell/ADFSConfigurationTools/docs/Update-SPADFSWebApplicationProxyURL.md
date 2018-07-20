@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Update-TDLFOSADFSWebApplicationProxyURL
+# Update-SPADFSWebApplicationProxyURL
 
 ## SYNOPSIS
 Updates ADFS Webapplication proxy URL with new federated domain name
@@ -13,28 +13,28 @@ Updates ADFS Webapplication proxy URL with new federated domain name
 ## SYNTAX
 
 ```
-Update-TDLFOSADFSWebApplicationProxyURL [-NewFederatedDomainURL] <String> [-CurrentFederatedDomainURL] <String>
+Update-SPADFSWebApplicationProxyURL [-NewFederatedDomainURL] <String> [-CurrentFederatedDomainURL] <String>
  [-WebApplicationProxyHostName] <String> [-DomainUsername] <String> [-DomainPassword] <String>
  [-CertificateThumbprint] <String> [-LogFilePath] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-this command updates the Webapplication server with the new federated domain URL
+This command updates the Web application proxy server with the new federated domain URL
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> Update-ADFSWebApplicationProxyURL -CurrentFederatedDomainURL "sso.fos.org.au" -NewFederatedDomainURL "sso.afca.org.au" -WebApplicationProxyHostName 'FOSAUMELSRV003' -DomainUsername 'abio\Administrator' -DomainPassword 'Pa$$w0rd' -CertificateThumbprint 'EA4FB1FABBE3746C85A0CAC94B761C9D84BF7CE1' -LogFilePath 'C:\Scripts' -Verbose
+PS C:\> Update-SPADFSWebApplicationProxyURL -CurrentFederatedDomainURL "sso.adfs.com.au" -NewFederatedDomainURL "sso.adfstools.com.au" -WebApplicationProxyHostName 'ADFSWEBAPP01' -DomainUsername 'ADFS\Administrator' -DomainPassword 'Pa$$w0rd' -CertificateThumbprint 'EA4FB1EWBBE3746C85AAWAC94B761C9D2ABF7C22' -LogFilePath 'C:\Scripts' -Verbose
 ```
 
-The above example updates the new federated domain from sso.fos.org.au to sso.afca.org.au
+The above example updates the new federated domain from sso.adfs.com.au to sso.adfstools.com.au
 
 ## PARAMETERS
 
 ### -CertificateThumbprint
-Thumbprint of new Federated domain name
-Use get-childitem Get-ChildItem Cert:\LocalMachine\My
+Certificate Thumbprint of new Federated domain name
+
 
 ```yaml
 Type: String
@@ -124,7 +124,7 @@ Accept wildcard characters: False
 ```
 
 ### -WebApplicationProxyHostName
-webapplication proxy server hostname
+Webapplication proxy server hostname
 
 ```yaml
 Type: String
