@@ -5,39 +5,38 @@ online version:
 schema: 2.0.0
 ---
 
-# Set-TDLFOSADUserEmailAddressInformation
+# Set-SPUserEmailAddressInformation
 
 ## SYNOPSIS
-Sets primary SMTP and secondary SMTP address for users. Modifies  the AD user proxy
-attribute and email address attribute in active directory
+Sets primary and secondary SMTP address for user. Updates Email address attribute to primary SMTP address.
 
 ## SYNTAX
 
 ### ByUserName
 ```
-Set-TDLFOSADUserEmailAddressInformation -UserName <String> -NewSMTPDomain <String> -CurrentSMTPDomain <String>
+Set-SPADUserEmailAddressInformation -UserName <String> -NewSMTPDomain <String> -CurrentSMTPDomain <String>
  [-EnableCurrentSMTPAlias] [-ForceUpdateIfEmpty] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ByOU
 ```
-Set-TDLFOSADUserEmailAddressInformation -SearchBase <String> -NewSMTPDomain <String>
+Set-SPADUserEmailAddressInformation -SearchBase <String> -NewSMTPDomain <String>
  -CurrentSMTPDomain <String> [-EnableCurrentSMTPAlias] [-ForceUpdateIfEmpty] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This command sets the users primary SMTP address and updates the existining SMTP address as a
+This command sets the users primary SMTP address and updates the existing SMTP address as a
 secondary alias if the EnableCurrentSMTPAlias switch is used. 
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> Set-TDLFOSADUserEmailAddressInformation -SearchBase "OU=Users,OU=SyncedUsers,DC=ABIO,DC=org,DC=au" -NewSMTPDomain '@afca.org.au' -CurrentSMTPDomain '@fos.org.au' -EnableCurrentSMTPAlias -ForceUpdateIfEmpty -Verbose 
+PS C:\> Set-SPADUserEmailAddressInformation -SearchBase "OU=Users,OU=SyncedUsers,DC=ABIO,DC=org,DC=au" -NewSMTPDomain '@adfstools.com.au' -CurrentSMTPDomain '@adfs.com.au' -EnableCurrentSMTPAlias -ForceUpdateIfEmpty -Verbose 
 ```
 
-The above command sets all users in the OU Users Primary SMTP address to @afca.org.au and updates the @fos.or.au as the secondary SMTP alias.
+The above command sets all users in the OU Users Primary SMTP address to @adfstools.com.au and updates the secondary SMTP alias to @adfs.com.au.
 
 The -forceUpdateifEmpty Parameter will update any users that do not have an email address associated to them
 
@@ -121,7 +120,7 @@ Accept wildcard characters: False
 ```
 
 ### -UserName
-Use the Username if only update to a spcific user or users are required
+Use the Username if only update to a specific user or users are required
 
 ```yaml
 Type: String
