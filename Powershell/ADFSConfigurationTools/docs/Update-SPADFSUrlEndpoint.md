@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Update-TDLFOSADFSUrlEndpoint
+# Update-SPADFSUrlEndpoint
 
 ## SYNOPSIS
 This commad updates the Primary ADFS server URL endpoint. 
@@ -13,7 +13,7 @@ This commad updates the Primary ADFS server URL endpoint.
 ## SYNTAX
 
 ```
-Update-TDLFOSADFSUrlEndpoint [-PrimaryADFSServer] <String> [-CurrentFederatedDomainURL] <String>
+Update-SPADFSUrlEndpoint [-PrimaryADFSServer] <String> [-CurrentFederatedDomainURL] <String>
  [-NewFederatedDomainURL] <String> [-FederatedDomains] <String[]> [-NewFederatedDisplayName] <String>
  [-MsolUserName] <String> [-MsolPassword] <String> [-DomainUsername] <String> [-DomainPassword] <String>
  [-CertificateThumbprint] <String> [-LogFilePath] <String> [-MultiDomainSupportEnabled] [-WhatIf] [-Confirm]
@@ -21,17 +21,17 @@ Update-TDLFOSADFSUrlEndpoint [-PrimaryADFSServer] <String> [-CurrentFederatedDom
 ```
 
 ## DESCRIPTION
-Use this command to update the primary ADFS URL endpoint. The command also updates SSL certificates as required.
-after URL update, The command updates all Microsoft Federated domains with the New URL endpoint. If any webapplication Proxy
-servers are present they need to be updated with the Update-TLDFOSWebapplicationProxyURL command
+Use this command to update the primary ADFS URL endpoint. The command Service Communication certificates and Token Signing and Decrypting certificates as required.
+
+Post URL update, The command updates all Microsoft Federated domains with the New URL endpoint. If any webapplication Proxy servers are present they need to be updated with the Update-SPWebapplicationProxyURL command
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> Update-TDLFOSADFSUrlEndpoint -PrimaryADFSServer "FOSAUMELSRV004.abio.org.au" -FederatedDomains 'afca.org.au', 'fos.org.au' -CurrentFederatedDomainURL "sso.fos.org.au" -NewFederatedDomainURL "sso.afca.org.au" -NewFederatedDisplayName "AFCA User Signin" -CertificateThumbprint "EA4FB1FABBE3746C85A0CAC94B761C9D84BF7CE1" -MsolUserName "FOSPOCLAB@FOSPOCLAB.onmicrosoft.com" -MsolPassword "MicrosoftOnlineLoginPasword" -DomainUsername "ABIO\Administrator" -DomainPassword 'Pa$$w0rd' -LogFilePath "C:\Scripts\ADFSLogs" -MultiDomainSupportEnabled  -Verbose
+PS C:\> Update-SPADFSUrlEndpoint -PrimaryADFSServer "ADFS01.adfslocal" -FederatedDomains 'adfs.com.au', 'adfstools.com.au' -CurrentFederatedDomainURL "sso.adfs.com.au" -NewFederatedDomainURL "sso.adfstools.com.au" -NewFederatedDisplayName "Created with Powershell" -CertificateThumbprint "EA4FB1EWBBE3746C85AAWAC94B761C9D2ABF7C22" -MsolUserName "MSGlobalADmin@adfstools.onmicrosoft.com" -MsolPassword "MicrosoftOnlineLoginPasword" -DomainUsername "ADFS\Administrator" -DomainPassword 'Pa$$w0rd' -LogFilePath "C:\Scripts\ADFSLogs" -MultiDomainSupportEnabled  -Verbose
 ```
 
-The above command updates the ADFS URL endpoint from fos.org.au to AFCA.org.au on the primary ADFS server FOSAUMELSRV004. It then updates the federated domains afca.org.au and fos.org.au. all log files will be written in C:\scripts\ADFSLogs\Logfilename
+The above command updates the ADFS URL endpoint from sso.adfs.com.au to sso.adfstools.com.au on the primary ADFS serverADFS01.adfslocal. It then updates the federated domains adfs.com.au and adfstools.com.au. all log files written in C:\scripts\ADFSLogs\Logfilename
 
 ## PARAMETERS
 
@@ -51,7 +51,7 @@ Accept wildcard characters: False
 ```
 
 ### -CurrentFederatedDomainURL
-{{current federated DomainURL}
+current federated DomainURL
 
 ```yaml
 Type: System.String
@@ -263,9 +263,6 @@ System.Management.Automation.SwitchParameter
 
 ## NOTES
 All Current configuration will be logged in the LogFilePath for reference
-If ADFS server is behind a Microsoft Web Application Proxy Server. The Update-TLDFOSWebapplicationProxyURL commad can be run with the required paramaneters. In some occations it can take 
-between 10 - 20 Minus for the webapplicationproxy server to updated the changes.
-
-This command was created by Shihan Pietersz from Thomas Duryea Logicalis  for FOS.
+If ADFS server is behind a Microsoft Web Application Proxy Server. The Update-SPWebapplicationProxyURL command can be run with the required parameters. 
 
 ## RELATED LINKS

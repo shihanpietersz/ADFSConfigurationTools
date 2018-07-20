@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Enable-TDLFOSADFSMultiDomainSupport
+# Enable-SPADFSMultiDomainSupport
 
 ## SYNOPSIS
 Enables MultiDomain Support for current and new federated domains
@@ -13,7 +13,7 @@ Enables MultiDomain Support for current and new federated domains
 ## SYNTAX
 
 ```
-Enable-TDLFOSADFSMultiDomainSupport [-PrimaryADFSServer] <String> [-MsolUserName] <String>
+Enable-SPADFSMultidomainSupport [-PrimaryADFSServer] <String> [-MsolUserName] <String>
  [-MsolPassword] <String> [-NewDomainToFederate] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -24,10 +24,10 @@ This command enables multidomain supports for existing and new federated domains
 
 ### Example 1
 ```powershell
-PS C:\> Enable-TDLFOSADFSMultidomainSupport -PrimaryADFSServer "FOSAUMELSRV004.abio.org.au" -MsolUserName "FOSPOCLAB@FOSPOCLAB.onmicrosoft.com" -MsolPassword "Pa$`$w0rd" -NewDomainToFederate "afca.org.au" -Verbose
+PS C:\> Enable-SPADFSMultidomainSupport -PrimaryADFSServer "ADFS01.adfs.local" -MsolUserName "MSGlobalADmin@adfstools.onmicrosoft.com" -MsolPassword "Pa$`$w0rd" -NewDomainToFederate "adfstools.com.au" -Verbose
 ```
 
-the above example enables a new federation for the domain afca.org.au and enables multidomain support for existing domains
+the above example enables a new federation for the domain adfstools.com.au and enables multidomain support for existing domains
 
 ## PARAMETERS
 

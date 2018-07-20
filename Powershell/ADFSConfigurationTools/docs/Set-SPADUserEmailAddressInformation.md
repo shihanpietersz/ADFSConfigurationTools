@@ -33,7 +33,7 @@ secondary alias if the EnableCurrentSMTPAlias switch is used.
 
 ### Example 1
 ```powershell
-PS C:\> Set-SPADUserEmailAddressInformation -SearchBase "OU=Users,OU=SyncedUsers,DC=ABIO,DC=org,DC=au" -NewSMTPDomain '@adfstools.com.au' -CurrentSMTPDomain '@adfs.com.au' -EnableCurrentSMTPAlias -ForceUpdateIfEmpty -Verbose 
+PS C:\> Set-SPADUserEmailAddressInformation -SearchBase "OU=Users,OU=SyncedUsers,DC=ADFS,DC=com,DC=au" -NewSMTPDomain '@adfstools.com.au' -CurrentSMTPDomain '@adfs.com.au' -EnableCurrentSMTPAlias -ForceUpdateIfEmpty -Verbose 
 ```
 
 The above command sets all users in the OU Users Primary SMTP address to @adfstools.com.au and updates the secondary SMTP alias to @adfs.com.au.
